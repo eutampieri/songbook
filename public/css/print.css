@@ -52,25 +52,7 @@ body {
     margin-left: 1.9cm;
     margin-right: 1.32cm;
     margin-bottom: 3.67cm;
-}
-
-@page {
-    @bottom-right {
-        margin: 10pt 0 30pt 0;
-        border-top: .25pt solid #666;
-        content: 'Canzoniere';
-        font-size: 9pt;
-        color: #333;
-    }
-    @bottom-left {
-        margin: 10pt 0 30pt 0;
-        border-top: .25pt solid #666;
-        content: counter(page);
-        font-size: 9pt;
-    }
-}
-
-@page: left {
+    
     @bottom-right {
         margin: 10pt 0 30pt 0;
         border-top: .25pt solid #666;

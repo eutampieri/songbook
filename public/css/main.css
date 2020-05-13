@@ -6,3 +6,25 @@
     width: 100%;
     padding-top: 1rem;
 }
+
+.btn-download {
+    float: left;
+    padding-right: 5px;
+}
+
+@media (max-width:910px) {
+
+    #btn-browse, #btn-load, #logo-div {
+        display: none;
+    }
+
+    #main-div {
+        max-width: 100%;
+        flex: none;
+        margin: 0.5rem;
+    }
+
+    .btn-download {
+        display: none;
+    }
+}

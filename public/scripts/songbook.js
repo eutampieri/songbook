@@ -93,11 +93,11 @@ function showSongbook() {
                     "</td>"+
                     "<td>"+
                         "<button class='btn btn-success btn-sm rounded-1' onclick='downloadSongAsPdf(\""+artist+"\", \""+title+"\");' type='button' data-toggle='tooltip'"+
-                        "data-placement='top' title='Download'><i class='fas fa-download'></i> .pdf</button>"+
+                        "data-placement='top' title='Download'><i class='fas fa-download'></i><div class='btn-download'>.pdf</div></button>"+
                     "</td>"+
                     "<td>"+
                         "<button class='btn btn-warning btn-sm rounded-1' onclick='downloadSong(\""+artist+"\", \""+title+"\");' type='button' data-toggle='tooltip'"+
-                        "data-placement='top' title='Download'><i class='fas fa-download'></i> .song</button>"+
+                        "data-placement='top' title='Download'><i class='fas fa-download'></i><div class='btn-download'>.song</div></button>"+
                     "</td>"+
                 "</tr>";
     }
