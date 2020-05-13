@@ -55,7 +55,7 @@ function changeSongsOrder() {
                 song_sort = sortSongsByTitle;
                 songbook.sort = "Title";
             }
-    songbook.songs.sort(song_sort);
+            songbook.songs.sort(song_sort);
     showSongbook();
     console.log(song_sort);
 }
