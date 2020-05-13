@@ -1,0 +1,87 @@
+.song {
+    line-height: 1.4em;
+    font-size: 15px;
+}
+
+.title {
+    font-size: 3em;
+    line-height: 2em;
+    font-family: Open Sans, -apple-system, Roboto, Helvetica neue, Helvetica, sans-serif;
+}
+
+.artist {
+    font-size: 1.5em;
+    font-family: Open Sans, -apple-system, Roboto, Helvetica neue, Helvetica, sans-serif;
+}
+
+.url, .rating {
+    display: none;
+}
+
+.ch {
+    border-radius: 3px;
+    padding: 2px;
+    /*background-color: rgba(219, 219, 219, 0.74);*/
+    font-weight: bold;
+}
+
+/*
+body {
+    display: table;
+}
+
+.song {
+    display: table-footer-group;
+}
+
+.song:after {
+    counter-increment: page;
+    content: counter(page);
+}
+*/
+
+@media print {
+    .pagebreak {
+        page-break-before: always;
+    }
+}
+
+@page {
+    size: A4;
+    margin-top: 1.9cm;
+    margin-left: 1.9cm;
+    margin-right: 1.32cm;
+    margin-bottom: 3.67cm;
+}
+
+@page {
+    @bottom-right {
+        margin: 10pt 0 30pt 0;
+        border-top: .25pt solid #666;
+        content: 'Canzoniere';
+        font-size: 9pt;
+        color: #333;
+    }
+    @bottom-left {
+        margin: 10pt 0 30pt 0;
+        border-top: .25pt solid #666;
+        content: counter(page);
+        font-size: 9pt;
+    }
+}
+
+@page: left {
+    @bottom-right {
+        margin: 10pt 0 30pt 0;
+        border-top: .25pt solid #666;
+        content: 'Canzoniere';
+        font-size: 9pt;
+        color: #333;
+    }
+    @bottom-left {
+        margin: 10pt 0 30pt 0;
+        border-top: .25pt solid #666;
+        content: counter(page);
+        font-size: 9pt;
+    }
+}
