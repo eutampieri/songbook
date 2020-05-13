@@ -7,3 +7,5 @@ class Song {
         this.tab = tab
     }
 }
+
+module.exports = Song;

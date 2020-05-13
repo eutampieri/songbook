@@ -80,12 +80,12 @@ module.exports.checkSongs = checkSongs;
 
 // NEW PROGRAM
 
-//var env = require('../utility_environment.js');
+var env = require('../utility_environment.js');
 //var aes = require('./accordi_spartiti_utility.js');
 var fs = require('fs');
 var ugs = require('./ultimate_guitar_utility.js');
 var Songbook = require('../public/scripts/classes/songbook');
-var songbooks_folder = '/Users/francescobonzi/git/songbookbuilder/files/songbooks/';
+var songbooks_folder = env.getSongbooksFolder();
 
 function getText(fileName) {
     return new Promise((resolve, reject) => {
