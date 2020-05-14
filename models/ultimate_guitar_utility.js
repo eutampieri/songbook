@@ -153,7 +153,7 @@ function formatTab(result) {
   tab = tab.split("[/ch]").join("</span>");
 
   /*
-  fs.writeFile("./tabEditata.txt", tab, function (err) {
+  fs.writeFile("./tabEditata.html", tab, function (err) {
     if (err)
       return console.log(err);
     console.log("Salvatoooooooo!");
@@ -163,11 +163,21 @@ function formatTab(result) {
   // FORMAT TAB IN MULTIPLE BLOCKS
 
   const NUM_DOT_PER_LINE = 72;
+  var tab_content = "";
   var split_tab = tab.split("<span class='tab'>");
   var edited_tab = split_tab[0];
-  console.log(split_tab.length);
-  for(var i=1;i<split_tab.length;i++) {
-    var tab_content = split_tab[i].split("</span>")[0];
+  //console.log(split_tab.length);
+  for(i=0;i<split_tab.length;i++) {
+    tab_content = split_tab[i].split("</span>")[0];
+
+    // With this if-statement I check if class='tab' is put in a wrong way inside the tab
+    // If so I save the current text and skip to the next class='tab'
+    if(tab_content.indexOf("<span ") == 0 || !tab_content.includes("-")) {
+      //console.log(tab_content.substring(0, 100));
+      edited_tab += split_tab[i];
+      continue;
+    }
+
     //console.log(tab_content);
     // I am inside a single tab block
     var result_tab = "";
@@ -181,7 +191,13 @@ function formatTab(result) {
         result[j][k] = lines[j].substring(k*NUM_DOT_PER_LINE, k*NUM_DOT_PER_LINE+NUM_DOT_PER_LINE);
       }
     }
-    for(var k=0;k<(lines[2].length/NUM_DOT_PER_LINE)+1;k++) {
+    var longest_line = 0;
+    for(var j=0;j<lines.length;j++) {
+      if(lines[j].length > longest_line)
+        longest_line = lines[j].length;
+    }
+    //console.log(lines);
+    for(var k=0;k<(longest_line/NUM_DOT_PER_LINE)+1;k++) {
       for(var j=0;j<lines.length;j++) {
         result_tab += result[j][k] + "<br/>";
       }
@@ -207,7 +223,7 @@ function formatTab(result) {
 }
 
 function getSong(link, callback) {
-  console.log(link);
+  //console.log(link);
   if (link == "")
     return callback("");
   rp(link)

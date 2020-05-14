@@ -81,3 +81,21 @@ div.editable {
 .body-edit {
     padding-top: 4rem;
 }
+
+.first-page {
+    display: none;
+}
+
+@media print {
+    .first-page {
+        display: block;
+        margin-right: 10%;
+        margin-top: 65%;
+        font-size: 5em;
+        font-family: Open Sans, -apple-system, Roboto, Helvetica neue, Helvetica, sans-serif;
+    }
+
+    .first-page-title {
+        float: right;
+    }
+}

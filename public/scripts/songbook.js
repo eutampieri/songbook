@@ -170,7 +170,7 @@ function openSongbookInfo() {
     var title = document.getElementById("song-title-textarea").value;
     var rating = document.getElementById("song-rating-textarea").value;
     var tab = document.getElementById("song-tab-edit").innerHTML;
-    tab = stringSafeFromSpecialCharacters(tab);
+    tab = tab.split("\"").join("\'");
     var song_json = {
         "url": url,
         "artist": artist,
@@ -291,7 +291,7 @@ function downloadSong(artist, title) {
     downloadLink.download = song.title + ".song";
     downloadLink.innerHTML = "Download File";
     downloadLink.href = songbook_to_save_as_url;
-    downloadLink.onclick = document.body.removeChild(event.target);
+    //downloadLink.onclick = document.body.removeChild(event.target);
     downloadLink.style.display = "none";
     document.body.appendChild(downloadLink);
  
@@ -385,6 +385,19 @@ function downloadSongbookAsPdf() {
                     "<link href='https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap' rel='stylesheet'>" +
                     "<style>.song { font-family: " + getFontSongbook() + "; }" + style + "</style>" + 
                 "</head><body>";
+
+    // TITLE
+    var title_parts = songbook.title.split(" ");
+    html += "<div class='first-page'>";
+    for(var i=0;i<title_parts.length;i++) {
+        var custom_style = "";
+        if(i+1 == title_parts.length)
+            custom_style = "style='clear: both;'";
+        html += "<div class='first-page-title' id='title-word-" + i + "' " + custom_style + ">" + title_parts[i] + "</div>";
+    }
+    html += "</div><div class='pagebreak'/>";
+
+    // BODY
     for(var i=0;i<songbook.songs.length;i++) {
         var html_song = "";
         var song = songbook.songs[i];
