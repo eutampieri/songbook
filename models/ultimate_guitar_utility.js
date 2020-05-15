@@ -167,7 +167,7 @@ function formatTab(result) {
   var split_tab = tab.split("<span class='tab'>");
   var edited_tab = split_tab[0];
   //console.log(split_tab.length);
-  for(i=0;i<split_tab.length;i++) {
+  for(var i=0;i<split_tab.length;i++) {
     tab_content = split_tab[i].split("</span>")[0];
 
     // With this if-statement I check if class='tab' is put in a wrong way inside the tab
@@ -215,6 +215,8 @@ function formatTab(result) {
     edited_tab += "<span class='tab'>" + result_tab + "</span>";
     //split_tab[i].substr(split_tab[i].length - tab_content.length)
   }
+  if(edited_tab == "")
+    edited_tab = tab;
   
   html += edited_tab;
   html += "</div>";

@@ -334,6 +334,8 @@ function formatChordsInItalian(tab) {
         italian_tab += chord + "</span>";
         prev_index += "</span>".length;
     }
+    if(italian_tab == "")
+        italian_tab = tab;
     return italian_tab;
 }
 
@@ -401,13 +403,14 @@ function downloadSongbookAsPdf() {
     for(var i=0;i<songbook.songs.length;i++) {
         var html_song = "";
         var song = songbook.songs[i];
+        var song_tmp = new Song(song.url, song.artist, song.title, song.rating, song.tab);
         if(songbook.lang == "Italian") {
-            var tab = formatChordsInItalian(songbook.songs[i].tab);
-            song.tab = tab;
-            html_song = songToHTML(song);
+            var tab = formatChordsInItalian(song_tmp.tab);
+            song_tmp.tab = tab;
+            html_song = songToHTML(song_tmp);
         } 
         else {
-            html_song = songToHTML(song);
+            html_song = songToHTML(song_tmp);
         }
         html += "<div class='song'>" + html_song + "</div><div class='pagebreak'/>";
     }
