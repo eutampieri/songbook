@@ -162,10 +162,11 @@ function formatTab(result) {
 
   // FORMAT TAB IN MULTIPLE BLOCKS
 
+  /*
   const NUM_DOT_PER_LINE = 72;
   var tab_content = "";
   var split_tab = tab.split("<span class='tab'>");
-  var edited_tab = split_tab[0];
+  var edited_tab = "";
   //console.log(split_tab.length);
   for(var i=0;i<split_tab.length;i++) {
     tab_content = split_tab[i].split("</span>")[0];
@@ -173,11 +174,11 @@ function formatTab(result) {
     // With this if-statement I check if class='tab' is put in a wrong way inside the tab
     // If so I save the current text and skip to the next class='tab'
     if(tab_content.indexOf("<span ") == 0 || !tab_content.includes("-")) {
-      //console.log(tab_content.substring(0, 100));
+      console.log("trovato span in prima posizione o senza un - nello split_tab["+i+"]: "+ split_tab[i] +"\n\n");
       edited_tab += split_tab[i];
       continue;
     }
-
+    console.log("split_tab["+i+"]: "+ split_tab[i]+"\n\n");
     //console.log(tab_content);
     // I am inside a single tab block
     var result_tab = "";
@@ -203,20 +204,20 @@ function formatTab(result) {
       }
     }
     result_tab = result_tab.replace("undefined", "");
-    /*
+    
     fs.writeFile("./tabEditata-"+i+".txt", result_tab, function (err) {
       if (err)
         return console.log(err);
       console.log("The tab was saved!");
     });
-    */
+    
     //console.log("i = " + i + ":\n" + result_tab + "\n\n");
     //console.log("i = " + i + ":\n" + split_tab[i].substring(split_tab[i].length - tab_content.length) + "\n\n");
     edited_tab += "<span class='tab'>" + result_tab + "</span>";
     //split_tab[i].substr(split_tab[i].length - tab_content.length)
   }
-  if(edited_tab == "")
-    edited_tab = tab;
+  */
+  var edited_tab = tab;
   
   html += edited_tab;
   html += "</div>";

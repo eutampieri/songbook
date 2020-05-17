@@ -133,7 +133,7 @@ function removeSong(artist, title) {
     var song_title_id = "song-title-"+title;
     var real_artist_name = document.getElementById(song_artist_id).innerHTML;
     var real_title_name = document.getElementById(song_title_id).innerHTML;
-    songbook.removeSong(real_artist_name, real_title_name);
+    songbook.removeSong(real_artist_name.replace("&amp;", "&"), real_title_name.replace("&amp;", "&"));
     showSongbook();
 }
 
@@ -178,7 +178,7 @@ function openSongbookInfo() {
         "rating": rating,
         "tab": tab
     }
-    songbook.removeSong(artist_song_modified, title_song_modified); //remove old song
+    songbook.removeSong(artist_song_modified.replace("&amp;", "&"), title_song_modified.replace("&amp;", "&")); //remove old song
     addSong(JSON.stringify(song_json)); //add modified song
     document.getElementById("songbook-info").hidden = false;
     document.getElementById("songbook-preferences").hidden = false;
@@ -276,8 +276,8 @@ function getSongFromLocalDisk() {
 function downloadSong(artist, title) {
     var songbook_to_save_as_url = "";
     var song = "";
-    var real_artist_name = document.getElementById("song-artist-"+artist).innerHTML;
-    var real_title_name = document.getElementById("song-title-"+title).innerHTML;
+    var real_artist_name = document.getElementById("song-artist-"+artist).innerHTML.replace("&amp;", "&");
+    var real_title_name = document.getElementById("song-title-"+title).innerHTML.replace("&amp;", "&");
     for (var i=0;i<songbook.songs.length;i++) {
         song = songbook.songs[i];
         if(song.artist == real_artist_name && song.title == real_title_name) {
@@ -351,8 +351,8 @@ var style = ""+
 
 function downloadSongAsPdf(artist, title) {
     var song = "";
-    var real_artist_name = document.getElementById("song-artist-"+artist).innerHTML;
-    var real_title_name = document.getElementById("song-title-"+title).innerHTML;
+    var real_artist_name = document.getElementById("song-artist-"+artist).innerHTML.replace("&amp;", "&");
+    var real_title_name = document.getElementById("song-title-"+title).innerHTML.replace("&amp;", "&");
     for (var i=0;i<songbook.songs.length;i++) {
         song = songbook.songs[i];
         if(song.artist == real_artist_name && song.title == real_title_name) {
