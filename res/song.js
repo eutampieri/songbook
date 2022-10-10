@@ -9,6 +9,7 @@ function get_soundcloud_rec(url) {
 }
 async function load() {
     let conf = await fetch("conf.json").then(x => x.json());
+    create_navbar(conf, document.getElementsByTagName("nav")[0]);
     let song_file = `songs/${document.location.search.substring(1)}.json`;
     let song = await fetch(song_file).then(x => x.json());
     document.getElementsByTagName("title")[0].innerText = `${conf.site_name} - ${song.title}`;

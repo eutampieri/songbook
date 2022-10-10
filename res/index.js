@@ -1,5 +1,6 @@
 async function load() {
     let conf = await fetch("conf.json").then(x => x.json());
+    create_navbar(conf, document.getElementsByTagName("nav")[0]);
     let index = await fetch("index.json").then(x => x.json());
     document.getElementsByTagName("title")[0].innerText = conf.site_name;
     document.getElementsByTagName("h1")[0].innerText = conf.site_name;

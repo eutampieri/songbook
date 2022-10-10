@@ -1,0 +1,4 @@
+nav>*>img {
+    max-height: 2.5em;
+    padding: 0 !important;
+}
