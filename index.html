@@ -12,22 +12,31 @@
             margin-left: 1em;
             font-weight: bold;
         }
+
+        nav>*>img {
+            max-height: 2.5em;
+            padding: 0 !important;
+        }
     </style>
     <title></title>
     <script src="res/utils.js"></script>
-    <script src="res/song.js"></script>
+    <script src="res/index.js"></script>
 </head>
 
 <body onload="load()">
     <main class="container">
         <h1></h1>
-        <section id="tags" class="mb-3"></section>
-        <div class="row">
-            <section id="recordings" class="d-none col-md-4 offset-md-2">
-                <h2>Registrazioni</h2>
-            </section>
-            <article id="lyrics" class="col-md-6 order-md-first"></article>
-        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="w-40" scope="col">Titolo</th>
+                    <th class="w-40" scope="col">Autore</th>
+                    <th class="w-10" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+            </tbody>
+        </table>
     </main>
 
 </body>
