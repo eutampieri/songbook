@@ -6,7 +6,7 @@ async function load() {
     let table = document.getElementById("tb");
     for (const song of index) {
         let row = document.createElement("tr");
-        row.innerHTML = `<th scope="row"><a href="song.html#${song.id}">${song.title}</a></th>
+        row.innerHTML = `<th scope="row"><a href="song.html?${song.id}">${song.title}</a></th>
                     <td>${song.authors.join(', ')}</td>
                     <td class="tags"></td>`;
         let tag_cell = row.getElementsByClassName("tags")[0];
