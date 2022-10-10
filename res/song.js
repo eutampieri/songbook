@@ -38,7 +38,7 @@ async function load() {
                     break;
                 case "cfstream":
                     let container = document.createElement("div");
-                    container.innerHTML = `<iframe src="${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
+                    container.innerHTML = `<iframe src="https://iframe.videodelivery.net/${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
                     recs.appendChild(container);
                     break;
             }
