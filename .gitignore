@@ -1,2 +1,3 @@
-*.json
+songs/*.json
+conf.json
 index.json

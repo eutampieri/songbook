@@ -33,7 +33,7 @@ function create_navbar(conf, nav) {
     nav.className = "navbar navbar-expand-lg navbar-light bg-light";
     nav.innerHTML = `<div class="container-fluid">
             <img class="navbar-brand" src="${conf.logo || "logo.png"}">
-            <a class="navbar-brand" href="/">${conf.site_name}</a>
+            <a class="navbar-brand" href=".">${conf.site_name}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
