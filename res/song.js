@@ -36,6 +36,11 @@ async function load() {
                 case "soundcloud":
                     get_soundcloud_rec(rec.url).then((x) => recs.appendChild(x));
                     break;
+                case "cfstream":
+                    let container = document.createElement("div");
+                    container.innerHTML = `<iframe src="${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
+                    recs.appendChild(container);
+                    break;
             }
         }
     }
