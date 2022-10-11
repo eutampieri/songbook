@@ -1,0 +1,101 @@
+#songbook-title {
+    cursor: pointer;
+    padding-bottom: 1em;
+}
+
+#form-search td {
+    padding-right: 1em;
+}
+
+.song-title {
+    cursor: pointer;
+    padding-right: 2em;
+}
+
+.song-artist {
+    padding-right: 2em;
+}
+
+#songs-textarea-container {
+    width: 70%;
+}
+
+#songbook-container {
+    padding-top: 1.6rem;
+    padding-bottom: 2rem;
+}
+
+#lang-chords {
+    padding-top: 1rem;
+}
+
+th {
+    padding-right: 1em;
+}
+
+td {
+    padding-right: 0.1em;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+div.editable {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.header-edit {
+    position: fixed;
+    background-color: white;
+}
+
+.title-edit {
+    float: left;
+}
+
+#save-btn-edit {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.body-edit {
+    padding-top: 4rem;
+}
+
+.first-page {
+    display: none;
+}
+
+@media print {
+    .first-page {
+        display: block;
+        margin-right: 10%;
+        margin-top: 65%;
+        font-size: 5em;
+        font-family: Open Sans, -apple-system, Roboto, Helvetica neue, Helvetica, sans-serif;
+    }
+
+    .first-page-title {
+        float: right;
+    }
+}
