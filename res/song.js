@@ -78,6 +78,16 @@ async function load() {
                     container.innerHTML = `<iframe src="https://iframe.videodelivery.net/${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
                     recs.appendChild(container);
                     break;
+                case "audio":
+                    let a = document.createElement("audio");
+                    a.src = rec.url;
+                    a.controls = true;
+                    let fb = document.createElement("a");
+                    fb.innerText = "Ascolta...";
+                    fb.href = rec.url;
+                    a.appendChild(fb);
+                    recs.appendChild(a);
+                    break;
             }
         }
     }
