@@ -24,6 +24,7 @@ jobs:
         cargo install wasm-bindgen-cli
         cargo build --verbose --release --target wasm32-unknown-unknown
         wasm-bindgen --target web --no-typescript --out-dir . target/wasm32-unknown-unknown/release/better_chords.wasm
+        ls
     - name: Run tests
       run: cargo test --verbose
     - name: Archive production artifacts
