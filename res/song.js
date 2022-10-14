@@ -11,7 +11,8 @@ function print_chord(chord, prefix) {
     let chord_el = document.createElement("span");
     let chord_text = document.createElement("span");
     chord_text.dataset.original_chord = chord;
-    chord_text.innerText = transpose_chord === undefined ? chord : transpose_chord(chord, 0)
+    chord_text.innerText = chord;
+    chord_text.classList.add("chord");
     let chord_prefix = document.createElement("span");
     chord_prefix.innerText = prefix
     chord_prefix.style.visibility = "hidden";
@@ -51,7 +52,6 @@ async function load() {
                     chords.appendChild(c);
                     current_offset = c.offsetWidth;
                 }
-                chords.classList.add("chord");
             }
             let r = document.createElement("div");
             r.innerText = row;
@@ -90,6 +90,16 @@ async function load() {
                     recs.appendChild(a);
                     break;
             }
+        }
+    }
+    await load_better_chords();
+    transpose(0);
+}
+
+function transpose(semitones) {
+    if (window.transpose_chord !== undefined) {
+        for (let el of document.getElementsByClassName("chord")) {
+            window.transpose_chord(el.dataset.original_chord, semitones);
         }
     }
 }
