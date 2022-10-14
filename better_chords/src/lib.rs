@@ -10,7 +10,7 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 #[wasm_bindgen]
 pub fn transpose_chord(chord: &str, semitones: i8) -> String {
     if let Ok((n, m)) = chordcalc::parse_chord(chord) {
-        format!("{}", n + semitones)
+        format!("{}{}", n + semitones, m)
     } else if semitones == 0 {
         format!("{}", chord)
     } else {

@@ -10,7 +10,8 @@ function get_soundcloud_rec(url) {
 function print_chord(chord, prefix) {
     let chord_el = document.createElement("span");
     let chord_text = document.createElement("span");
-    chord_text.innerText = chord
+    chord_text.dataset.original_chord = chord;
+    chord_text.innerText = transpose_chord === undefined ? chord : transpose_chord(chord, 0)
     let chord_prefix = document.createElement("span");
     chord_prefix.innerText = prefix
     chord_prefix.style.visibility = "hidden";
