@@ -1,0 +1,34 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./better_chords
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: |
+        cargo install wasm-bindgen-cli
+        cargo build --verbose --release --target wasm32-unknown-unknown
+        wasm-bindgen --target web --no-typescript --out-dir . target/wasm32-unknown-unknown/release/better_chords.wasm
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: BetterChords
+        path: |
+          *js
+          *.wasm
