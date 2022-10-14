@@ -32,7 +32,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "chordcalc"
 version = "0.1.0"
-source = "git+https://gitlab.com/eutampieri/chordcalc#473437cd78deb3998e2509ab6c1e775dd85379a4"
+source = "git+https://gitlab.com/eutampieri/chordcalc#e21ca318a7d5a0167a660e4dbb2268f8ce930d11"
 dependencies = [
  "micromath",
 ]

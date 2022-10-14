@@ -92,14 +92,14 @@ async function load() {
             }
         }
     }
-    await load_better_chords();
+    await wasm_status;
     transpose(0);
 }
 
 function transpose(semitones) {
-    if (window.transpose_chord !== undefined) {
+    if (transpose_chord !== undefined) {
         for (let el of document.getElementsByClassName("chord")) {
-            window.transpose_chord(el.dataset.original_chord, semitones);
+            el.innerText = window.transpose_chord(el.dataset.original_chord, semitones);
         }
     }
 }
