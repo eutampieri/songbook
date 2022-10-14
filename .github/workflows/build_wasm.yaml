@@ -32,5 +32,5 @@ jobs:
       with:
         name: BetterChords
         path: |
-          *js
-          *.wasm
+          better_chords/*js
+          better_chords/*.wasm
