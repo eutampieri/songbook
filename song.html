@@ -30,13 +30,16 @@
         let wasm_status = null;
     </script>
     <script type="module">
-        import { transpose_chord, default as init } from './res/better_chords.js';
+        import { transpose_chord, get_version, default as init } from './res/better_chords.js';
 
         async function load_better_chords() {
             await init('res/better_chords_bg.wasm');
 
             // make the function available to the browser
-            window.transpose_chord = transpose_chord;
+            window.BetterChords = {
+                transpose: transpose_chord,
+                version: get_version
+            };
         }
         wasm_status = load_better_chords();
     </script>

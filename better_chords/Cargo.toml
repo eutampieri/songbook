@@ -26,9 +26,13 @@ wasm-bindgen = "0.2.63"
 # allocator, however.
 wee_alloc = { version = "0.4.5", optional = true }
 chordcalc = {git = "https://gitlab.com/eutampieri/chordcalc"}
+git-version = "0.3"
 
-#[dev-dependencies]
+[dev-dependencies]
 #wasm-bindgen-test = "0.3.13"
+
+[build-dependencies]
+cargo-lock = "8.0"
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.

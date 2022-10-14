@@ -97,9 +97,9 @@ async function load() {
 }
 
 function transpose(semitones) {
-    if (transpose_chord !== undefined) {
+    if (BetterChords !== undefined) {
         for (let el of document.getElementsByClassName("chord")) {
-            el.innerText = window.transpose_chord(el.dataset.original_chord, semitones);
+            el.innerText = BetterChords.transpose(el.dataset.original_chord, semitones);
         }
     }
 }

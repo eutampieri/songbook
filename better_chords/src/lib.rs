@@ -1,4 +1,5 @@
 //use chordcalc::chords::Chord;
+use git_version::git_version;
 use wasm_bindgen::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -16,4 +17,15 @@ pub fn transpose_chord(chord: &str, semitones: i8) -> String {
     } else {
         "Err".to_string()
     }
+}
+
+#[wasm_bindgen]
+pub fn get_version() -> String {
+    format!(
+        "{} {} ({}) - chordcalc {}",
+        env!("CARGO_CRATE_NAME"),
+        env!("CARGO_PKG_VERSION"),
+        git_version!(),
+        env!("CHORDCALC_VER")
+    )
 }
