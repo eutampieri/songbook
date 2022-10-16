@@ -1,0 +1,19 @@
+{
+    "hyphenated": false,
+    "title": "Demo song",
+    "tags": [
+        "Example"
+    ],
+    "authors": [],
+    "lyrics": [
+        [
+            "Lorem Ipsum",
+            "Dolor sit amet"
+        ]
+    ],
+    "refrain": [
+        false
+    ],
+    "recordings": [],
+    "chords": []
+}
