@@ -1,7 +1,6 @@
 import json
 from glob import glob
 
-
 def get_id(fn):
     return '.'.join(fn.split("/")[-1].split('.')[:-1])
 
@@ -13,5 +12,8 @@ for song in glob("songs/*.json"):
         song_data = json.load(f)
     index.append(
         {"id": get_id(song), "title": song_data["title"], "authors": song_data["authors"], "tags": song_data["tags"]})
+
+index = (sorted(index, key=lambda k: k['title'].upper()))
+
 with open("index.json", "w") as f:
     json.dump(index, f)
