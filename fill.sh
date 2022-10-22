@@ -4,8 +4,8 @@ AUTHORS=`git shortlog -sn | cut -d$'\t' -f 2 | grep -v eutampieri | perl -p -e '
 COPYRIGHT_DATES=`git shortlog --format=format:%cI | grep - | sort | cut -d '-' -f1 | uniq | tr -d ' ' | perl copyright.pl`
 
 perl -v
-git shortlog -sn | cut -d$'\t' -f 2
-git shortlog --format=format:%cI | grep - | sort
+git shortlog -sn
+git shortlog --format=format:%cI
 
 echo "Current commit: $CURRENT_COMMIT"
 echo "Authors: $AUTHORS"
