@@ -30,3 +30,4 @@ jobs:
           res
           songs
           *.html
+          make_index.py

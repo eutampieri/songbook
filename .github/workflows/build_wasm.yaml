@@ -10,8 +10,40 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  check:
+    name: Check files
+    outputs:
+      run_job: ${{ steps.check_files.outputs.run_job }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: check modified files
+        id: check_files
+        run: |
+          echo "=============== list modified files ==============="
+          git diff --name-only HEAD^ HEAD
+          
+          echo "========== check paths of modified files =========="
+          git diff --name-only HEAD^ HEAD > files.txt
+          while IFS= read -r file
+          do
+            echo $file
+            if [[ $file != better_chords/* ]]; then
+              echo "This modified file is not under the 'better_chords' folder."
+              echo "run_job=false" >> $GITHUB_OUTPUT
+              break
+            else
+              echo "run_job=true" >> $GITHUB_OUTPUT
+            fi
+          done < files.txt
+
   build:
 
+    needs: check
+    if: needs.check.outputs.run_job == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -24,6 +56,30 @@ jobs:
         cargo install wasm-bindgen-cli
         cargo build --verbose --release --target wasm32-unknown-unknown
         wasm-bindgen --target web --no-typescript --out-dir . target/wasm32-unknown-unknown/release/better_chords.wasm
+        ls
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: BetterChords
+        path: |
+          better_chords/*js
+          better_chords/*.wasm
+  use_old:
+
+    needs: check
+    if: needs.check.outputs.run_job == 'false'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./better_chords
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: |
+        wget https://nightly.link/eutampieri/songbook/workflows/build_wasm.yaml/master/BetterChords.zip
+        unzip BetterChords.zip
         ls
     - name: Run tests
       run: cargo test --verbose
