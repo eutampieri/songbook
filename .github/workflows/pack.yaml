@@ -23,7 +23,7 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: BetterChords
+        name: Songbook
         path: |
           res
           songs
