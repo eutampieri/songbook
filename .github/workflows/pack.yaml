@@ -30,4 +30,5 @@ jobs:
           res
           songs
           *.html
+          LICENSE
           make_index.py
