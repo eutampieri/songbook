@@ -3,6 +3,8 @@ CURRENT_COMMIT=`git rev-parse --short HEAD`#$CI_COMMIT_SHORT_SHA
 AUTHORS=`git shortlog -sn | cut -d$'\t' -f 2 | grep -v eutampieri | perl -p -e 'chomp if eof' | tr '\n' ',' | sed 's/,/, /'`
 COPYRIGHT_DATES=`git shortlog --format=format:%cI | grep - | sort | cut -d '-' -f1 | uniq | tr -d ' ' | perl copyright.pl`
 
+git log
+
 echo "Current commit: $CURRENT_COMMIT"
 echo "Authors: $AUTHORS"
 echo "First and last commit years: $COPYRIGHT_DATES"
