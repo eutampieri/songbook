@@ -39,7 +39,7 @@ for filename in glob("songs/*.crd"):
     current_stanza = 0
     current_verse = 0
     song = {"title": "", "tags": [],
-            "authors": [], "lyrics": [[]], "refrain": [False], "chords": []}
+            "authors": [], "lyrics": [[]], "refrain": [False], "chords": [], "recordings": []}
     with open(filename) as f:
         chordpro = f.readlines()
     for line in chordpro:
