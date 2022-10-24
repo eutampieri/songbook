@@ -54,8 +54,15 @@
         <h1></h1>
         <section id="tags" class="mb-3"></section>
         <div class="row">
-            <section id="recordings" class="d-none col-md-4 offset-md-2">
-                <h2>Registrazioni</h2>
+            <section class="col-md-4 offset-md-2">
+                <section id="transpose" class="d-none">
+                    <h2>Transpose</h2>
+                    <input type="range" min="0" max="11" step="1" value="0" onchange="transpose(this.value)"
+                        style="width: 100%;">
+                </section>
+                <section id="recordings" class="d-none">
+                    <h2>Registrazioni</h2>
+                </section>
             </section>
             <article id="lyrics" class="col-md-6 order-md-first"></article>
         </div>

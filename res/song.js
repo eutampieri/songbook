@@ -98,6 +98,7 @@ async function load() {
 
 function transpose(semitones) {
     if (BetterChords !== undefined) {
+        document.getElementById("transpose").classList.remove("d-none");
         let previous_margin = 0;
         for (let el of document.getElementsByClassName("chord")) {
             el.innerText = BetterChords.transpose(el.dataset.original_chord, semitones);
