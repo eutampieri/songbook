@@ -98,8 +98,15 @@ async function load() {
 
 function transpose(semitones) {
     if (BetterChords !== undefined) {
+        let previous_margin = 0;
         for (let el of document.getElementsByClassName("chord")) {
             el.innerText = BetterChords.transpose(el.dataset.original_chord, semitones);
+            let p = el.parentElement;
+            if (parseInt(p.style.marginLeft) == 0) {
+                previous_margin = 0;
+            }
+            p.style.marginLeft = `${previous_margin * -1}px`;
+            previous_margin = p.offsetWidth;
         }
     }
 }
