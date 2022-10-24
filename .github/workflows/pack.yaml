@@ -32,3 +32,4 @@ jobs:
           *.html
           LICENSE
           make_index.py
+          chordpro_importer.py

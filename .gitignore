@@ -1,3 +1,4 @@
 songs/*.json
+songs/*.crd
 conf.json
 index.json
