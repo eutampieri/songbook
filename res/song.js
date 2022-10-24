@@ -108,7 +108,9 @@ function transpose(semitones) {
             }
             let this_padding = p.children[0].offsetWidth;
             p.style.marginLeft = `${previous_margin * -1 + Math.max(0, previous_margin - this_padding)}px`;
-            previous_margin = p.offsetWidth + Math.max(0, previous_margin - this_padding);
+            let a = p.offsetWidth;
+            let b = Math.max(0, previous_margin - this_padding);
+            previous_margin = a + b;
         }
     }
 }
