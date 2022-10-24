@@ -4,9 +4,12 @@ import json
 
 def parse_line(l):
     chords = []
+    directives = []
     line = ""
     chord = ""
+    directive = ""
     in_chord = False
+    in_directive = False
     for c in l:
         if c == '[':
             in_chord = True
@@ -14,11 +17,19 @@ def parse_line(l):
         elif c == ']':
             in_chord = False
             chords.append({"position": len(line), "chord": chord})
+        elif c == '{':
+            in_directive = True
+            directive = ""
+        elif c == '}':
+            in_directive = False
+            directives.append(parse_directive(directive))
         elif in_chord:
             chord += c
+        elif in_directive:
+            directive += c
         elif not in_chord:
             line += c
-    return line, chords
+    return line, chords, directives
 
 
 def parse_directive(d):
@@ -48,8 +59,8 @@ for filename in glob("songs/*.crd"):
             continue
         if line[0] == '#':
             continue
-        elif line[0] == '{':
-            dir, val = parse_directive(line)
+        line, chords, directives = parse_line(line)
+        for dir, val in directives:
             if dir == "title":
                 song["title"] = val
             elif dir == "soc":
@@ -62,10 +73,12 @@ for filename in glob("songs/*.crd"):
                 song["refrain"].append(False)
                 current_stanza += 1
                 current_verse = 0
+            elif dir == "c":
+                line = line + f"({val})"
             else:
                 print(dir, val)
+        if line == "":
             continue
-        line, chords = parse_line(line)
         song["lyrics"][len(song["lyrics"]) - 1].append(line)
         for c in chords:
             song["chords"].append(fix_chord(c, current_stanza, current_verse))
