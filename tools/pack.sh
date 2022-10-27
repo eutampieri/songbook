@@ -16,4 +16,5 @@ for f in *.html
     sed -i "s/{{dates}}/$COPYRIGHT_DATES/g" $f
 done
 
-mv tools/{make_index, chordpro_importer}.py .
+mv tools/make_index.py .
+mv tools/chordpro_importer.py .
