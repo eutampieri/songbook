@@ -18,6 +18,7 @@ function create_tag(conf, tag) {
     }
     tag_element.classList.add("badge");
     tag_element.classList.add("rounded-pill");
+    tag_element.classList.add("me-1");
     tag_element.classList.add(`text-bg-${tag_colour}`);
     return tag_element;
 }
