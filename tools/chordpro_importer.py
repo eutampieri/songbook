@@ -122,6 +122,7 @@ for filename in glob("songs/*.crd"):
             if not dir in DIRECTIVES:
                 print(f"Unknown directive {dir} with value {val}")
                 continue
+            raw_dir = dir
             dir = DIRECTIVES[dir]
             if dir == ChordProDirective.TITLE:
                 song["title"] = val
@@ -139,8 +140,8 @@ for filename in glob("songs/*.crd"):
                 line = line + f"({val})"
             elif dir == ChordProDirective.META:
                 val = val.split(' ', 1)
-                meta = dir == 'meta'
-                name = val[0] if meta else dir
+                meta = raw_dir == 'meta'
+                name = val[0] if meta else raw_dir
                 val = val[1:] if meta else ' '.join(val)
                 if name == 'artist':
                     song['authors'].append(val)
@@ -148,9 +149,8 @@ for filename in glob("songs/*.crd"):
                     song['tags'].append(val)
                 else:
                     print(f"Unsupported metadata {name} = {val}")
-                line = line + f"({val})"
             else:
-                print(f"Unsupported directive found: {dir}. Value = {val}.")
+                print(f"Unsupported directive found: {dir} ({raw_dir}). Value = {val}.")
         if line == "":
             continue
         song["lyrics"][len(song["lyrics"]) - 1].append(line)
