@@ -95,7 +95,7 @@ def parse_directive(d):
     if len(parsed) == 1:
         return parsed[0], None
     else:
-        return parsed[0], parsed[1]
+        return parsed[0], parsed[1].strip(" ")
 
 
 def fix_chord(c, stanza, row):
