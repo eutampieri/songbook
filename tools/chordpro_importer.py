@@ -147,7 +147,7 @@ for filename in glob("songs/*.crd"):
                 elif name == 'tag':
                     song['tags'].append(val)
                 else:
-                    print(f"Unsupported metadata {name} = {value}")
+                    print(f"Unsupported metadata {name} = {val}")
                 line = line + f"({val})"
             else:
                 print(f"Unsupported directive found: {dir}. Value = {val}.")
