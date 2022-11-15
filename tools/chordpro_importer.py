@@ -32,6 +32,7 @@ class ChordProDirective(enum.Enum):
     NEW_SONG = enum.auto()
     NO_GRID = enum.auto()
     PAGETYPE = enum.auto()
+    RECORDING = enum.auto()
     START_OF_BRIDGE = enum.auto()
     START_OF_CHORUS = enum.auto()
     START_OF_GRID = enum.auto()
@@ -56,7 +57,7 @@ class ChordProDirective(enum.Enum):
 
 
 DIRECTIVES = {"chord": ChordProDirective.CHORD, "chordcolour": ChordProDirective.CHORD_COLOUR, "chordfont": ChordProDirective.CHORD_FONT, "chordsize": ChordProDirective.CHORD_SIZE, "chorus": ChordProDirective.CHORUS, "column_break": ChordProDirective.COLUMN_BREAK, "cb": ChordProDirective.COLUMN_BREAK, "columns": ChordProDirective.COLUMNS, "col": ChordProDirective.COLUMNS, "comment": ChordProDirective.COMMENT, "c": ChordProDirective.COMMENT, "comment_box": ChordProDirective.COMMENT_BOX, "cb": ChordProDirective.COMMENT_BOX, "comment_italic": ChordProDirective.COMMENT_ITALIC, "ci": ChordProDirective.COMMENT_ITALIC, "define": ChordProDirective.DEFINE, "end_of_bridge": ChordProDirective.END_OF_BRIDGE, "eob": ChordProDirective.END_OF_BRIDGE, "end_of_chorus": ChordProDirective.END_OF_CHORUS, "eoc": ChordProDirective.END_OF_CHORUS, "end_of_grid": ChordProDirective.END_OF_GRID, "eog": ChordProDirective.END_OF_GRID, "end_of_tab": ChordProDirective.END_OF_TAB, "eot": ChordProDirective.END_OF_TAB, "end_of_verse": ChordProDirective.END_OF_VERSE, "eov": ChordProDirective.END_OF_VERSE, "footersize": ChordProDirective.FOOTER_SIZE, "footercolour": ChordProDirective.FOOTER_COLOUR, "footerfont": ChordProDirective.FOOTER_FONT, "grid": ChordProDirective.GRID, "g": ChordProDirective.GRID, "highlight": ChordProDirective.HIGHLIGHT, "image": ChordProDirective.IMAGE, "meta": ChordProDirective.META, "album": ChordProDirective.META, "artist": ChordProDirective.META, "capo": ChordProDirective.META, "composer": ChordProDirective.META, "copyright": ChordProDirective.META, "duration": ChordProDirective.META, "key": ChordProDirective.META, "lyricist": ChordProDirective.META, "sorttitle": ChordProDirective.META,
-              "tempo": ChordProDirective.META, "time": ChordProDirective.META, "year": ChordProDirective.META, "new_page": ChordProDirective.NEW_PAGE, "np": ChordProDirective.NEW_PAGE, "new_physical_page": ChordProDirective.NEW_PHYSICAL_PAGE, "npp": ChordProDirective.NEW_PHYSICAL_PAGE, "new_song": ChordProDirective.NEW_SONG, "ns": ChordProDirective.NEW_SONG, "no_grid": ChordProDirective.NO_GRID, "ng": ChordProDirective.NO_GRID, "pagetype": ChordProDirective.PAGETYPE, "start_of_bridge": ChordProDirective.START_OF_BRIDGE, "sob": ChordProDirective.START_OF_BRIDGE, "start_of_chorus": ChordProDirective.START_OF_CHORUS, "soc": ChordProDirective.START_OF_CHORUS, "start_of_grid": ChordProDirective.START_OF_GRID, "sog": ChordProDirective.START_OF_GRID, "start_of_tab": ChordProDirective.START_OF_TAB, "sot": ChordProDirective.START_OF_TAB, "start_of_verse": ChordProDirective.START_OF_VERSE, "sov": ChordProDirective.START_OF_VERSE, "subtitle": ChordProDirective.SUBTITLE, "st": ChordProDirective.SUBTITLE, "tabcolour": ChordProDirective.TABCOLOUR, "tabfont": ChordProDirective.TABFONT, "tabsize": ChordProDirective.TABSIZE, "textcolour": ChordProDirective.TEXTCOLOUR, "textfont": ChordProDirective.TEXTFONT, "tf2": ChordProDirective.TEXTFONT, "textsize": ChordProDirective.TEXTSIZE, "ts2": ChordProDirective.TEXTSIZE, "title": ChordProDirective.TITLE, "t": ChordProDirective.TITLE, "titlesize": ChordProDirective.TITLESIZE, "titlecolour": ChordProDirective.TITLECOLOUR, "titlefont": ChordProDirective.TEXTFONT, "titles": ChordProDirective.TITLES, "tocsize": ChordProDirective.TOCSIZE, "toccolour": ChordProDirective.TOCCOLOUR, "tocfont": ChordProDirective.TOCFONT, "transpose": ChordProDirective.TRANSPOSE}
+              "tempo": ChordProDirective.META, "time": ChordProDirective.META, "year": ChordProDirective.META, "new_page": ChordProDirective.NEW_PAGE, "np": ChordProDirective.NEW_PAGE, "new_physical_page": ChordProDirective.NEW_PHYSICAL_PAGE, "npp": ChordProDirective.NEW_PHYSICAL_PAGE, "new_song": ChordProDirective.NEW_SONG, "ns": ChordProDirective.NEW_SONG, "no_grid": ChordProDirective.NO_GRID, "ng": ChordProDirective.NO_GRID, "pagetype": ChordProDirective.PAGETYPE, "start_of_bridge": ChordProDirective.START_OF_BRIDGE, "sob": ChordProDirective.START_OF_BRIDGE, "start_of_chorus": ChordProDirective.START_OF_CHORUS, "soc": ChordProDirective.START_OF_CHORUS, "start_of_grid": ChordProDirective.START_OF_GRID, "sog": ChordProDirective.START_OF_GRID, "start_of_tab": ChordProDirective.START_OF_TAB, "sot": ChordProDirective.START_OF_TAB, "start_of_verse": ChordProDirective.START_OF_VERSE, "sov": ChordProDirective.START_OF_VERSE, "subtitle": ChordProDirective.SUBTITLE, "st": ChordProDirective.SUBTITLE, "tabcolour": ChordProDirective.TABCOLOUR, "tabfont": ChordProDirective.TABFONT, "tabsize": ChordProDirective.TABSIZE, "textcolour": ChordProDirective.TEXTCOLOUR, "textfont": ChordProDirective.TEXTFONT, "tf2": ChordProDirective.TEXTFONT, "textsize": ChordProDirective.TEXTSIZE, "ts2": ChordProDirective.TEXTSIZE, "title": ChordProDirective.TITLE, "t": ChordProDirective.TITLE, "titlesize": ChordProDirective.TITLESIZE, "titlecolour": ChordProDirective.TITLECOLOUR, "titlefont": ChordProDirective.TEXTFONT, "titles": ChordProDirective.TITLES, "tocsize": ChordProDirective.TOCSIZE, "toccolour": ChordProDirective.TOCCOLOUR, "tocfont": ChordProDirective.TOCFONT, "transpose": ChordProDirective.TRANSPOSE, "x_songbook_recording": ChordProDirective.RECORDING}
 
 
 def parse_line(l):
@@ -136,8 +137,20 @@ for filename in glob("songs/*.crd"):
                 current_verse = 0
             elif dir == ChordProDirective.COMMENT:
                 line = line + f"({val})"
+            elif dir == ChordProDirective.META:
+                val = val.split(' ', 1)
+                meta = dir == 'meta'
+                name = val[0] if meta else dir
+                val = val[1:] if meta else ' '.join(val)
+                if name == 'artist':
+                    song['authors'].append(val)
+                elif name == 'tag':
+                    song['tags'].append(val)
+                else:
+                    print(f"Unsupported metadata {name} = {value}")
+                line = line + f"({val})"
             else:
-                print("Unsupported directive found: {dir}. Value = {val}.")
+                print(f"Unsupported directive found: {dir}. Value = {val}.")
         if line == "":
             continue
         song["lyrics"][len(song["lyrics"]) - 1].append(line)
