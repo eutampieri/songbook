@@ -17,3 +17,4 @@ for f in *.html
 done
 
 mv tools/make_index.py .
+mv tools/chordpro_importer.py .

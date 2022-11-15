@@ -6,7 +6,8 @@ This project aims to create a static site generator (there is no per-request ser
 1. Fetch the build and the plugins
 1. Place songs in the `songs` folder
 1. Edit your `conf.json` file
-1. Run `make_index.py` (which generates `index.json`
+1. If needed, run `chordpro_importer.py` to import all chordpro songs
+1. Run `make_index.py` (which generates `index.json`)
 1. Deploy all the files (except for `make_index.py`)
 
 ## Structure
@@ -28,6 +29,7 @@ Support for lunr search in the main page. To be enabled during deployment by run
 ## Song format
 
 TODO, waiting for it to stabilize enough. In the meantime, you can check the provided examples in the `songs` dir.
+This software is able to parse chordpro files.
 
 ## Configuration file
 
