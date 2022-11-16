@@ -155,11 +155,12 @@ for filename in glob("songs/*.crd"):
                 song["recordings"].append(recording)
             else:
                 print(f"Unsupported directive found: {dir}. Value = {val}.")
-        if line == "" and len(song["lyrics"][len(song["lyrics"]) - 1]) != 0:
-            song["lyrics"].append([])
-            song["refrain"].append(False)
-            current_stanza += 1
-            current_verse = 0
+        if line == ""
+            if len(song["lyrics"][len(song["lyrics"]) - 1]) != 0:
+                song["lyrics"].append([])
+                song["refrain"].append(False)
+                current_stanza += 1
+                current_verse = 0
             continue
         song["lyrics"][len(song["lyrics"]) - 1].append(line)
         for c in chords:
