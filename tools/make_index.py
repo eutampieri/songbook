@@ -24,6 +24,6 @@ if len(argv) >=2:
         f.write("<?xml version=\"1.0\" encoding=\"utf-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xsi=\"http://w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">")
         for page in index:
             f.write(f"<url><loc>{argv[1]}/song.html?{page['id']}</loc></url>")
-            f.write("</urlset>")
+        f.write("</urlset>")
 else:
     print("Sitemap was not generated. Run with base URL as a parameter (i.e. ./make_index.py https://example.com)")
