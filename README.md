@@ -6,7 +6,7 @@ This project aims to create a static site generator (there is no per-request ser
 1. Fetch the build and the plugins
 1. Place songs in the `songs` folder
 1. Edit your `conf.json` file
-1. If needed, run `chordpro_importer.py` to import all chordpro songs
+1. If needed, run `chordpro_importer.py` to import all chordpro songs (If you find any issue with the importer, report it in [issue #7](https://github.com/eutampieri/spngbook/issues/7))
 1. Run `make_index.py` (which generates `index.json`)
 1. Deploy all the files (except for `make_index.py`)
 
