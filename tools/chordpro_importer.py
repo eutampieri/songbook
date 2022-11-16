@@ -149,6 +149,10 @@ for filename in glob("songs/*.crd"):
                 else:
                     print(f"Unsupported metadata {name} = {value}")
                 line = line + f"({val})"
+            elif dir == ChordProDirective.RECORDING:
+                val = val.split(' ')
+                recording = {k: v for k, v in zip(val[::2], val[1::2])}
+                song["recordings"].append(recording)
             else:
                 print(f"Unsupported directive found: {dir}. Value = {val}.")
         if line == "" and len(song["lyrics"][len(song["lyrics"]) - 1]) != 0:
