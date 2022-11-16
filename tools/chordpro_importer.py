@@ -149,7 +149,6 @@ for filename in glob("songs/*.crd"):
                     song['tags'].append(val)
                 else:
                     print(f"Unsupported metadata {name} = {val}")
-                line = line + f"({val})"
             elif dir == ChordProDirective.RECORDING:
                 val = val.split(' ')
                 recording = {k: v for k, v in zip(val[::2], val[1::2])}
