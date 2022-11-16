@@ -155,7 +155,7 @@ for filename in glob("songs/*.crd"):
                 song["recordings"].append(recording)
             else:
                 print(f"Unsupported directive found: {dir}. Value = {val}.")
-        if line == ""
+        if line == "":
             if len(song["lyrics"][len(song["lyrics"]) - 1]) != 0:
                 song["lyrics"].append([])
                 song["refrain"].append(False)
