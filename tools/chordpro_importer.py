@@ -95,7 +95,7 @@ def parse_directive(d):
     if len(parsed) == 1:
         return parsed[0], None
     else:
-        return parsed[0], parsed[1]
+        return parsed[0], parsed[1].strip(" ")
 
 
 def fix_chord(c, stanza, row):
@@ -122,6 +122,7 @@ for filename in glob("songs/*.crd"):
             if not dir in DIRECTIVES:
                 print(f"Unknown directive {dir} with value {val}")
                 continue
+            raw_dir = dir
             dir = DIRECTIVES[dir]
             if dir == ChordProDirective.TITLE:
                 song["title"] = val
@@ -139,15 +140,15 @@ for filename in glob("songs/*.crd"):
                 line = line + f"({val})"
             elif dir == ChordProDirective.META:
                 val = val.split(' ', 1)
-                meta = dir == 'meta'
-                name = val[0] if meta else dir
+                meta = raw_dir == 'meta'
+                name = val[0] if meta else raw_dir
                 val = val[1:] if meta else ' '.join(val)
                 if name == 'artist':
                     song['authors'].append(val)
                 elif name == 'tag':
                     song['tags'].append(val)
                 else:
-                    print(f"Unsupported metadata {name} = {value}")
+                    print(f"Unsupported metadata {name} = {val}")
                 line = line + f"({val})"
             elif dir == ChordProDirective.RECORDING:
                 val = val.split(' ')
