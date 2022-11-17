@@ -113,9 +113,7 @@ for filename in glob("songs/*.crd"):
         chordpro = f.readlines()
     for line in chordpro:
         line = line.strip()
-        if len(line) == 0:
-            continue
-        if line[0] == '#':
+        if len(line) > 0 and line[0] == '#':
             continue
         line, chords, directives = parse_line(line)
         for dir, val in directives:
