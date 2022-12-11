@@ -16,5 +16,8 @@ for f in *.html
     sed -i "s/{{dates}}/$COPYRIGHT_DATES/g" $f
 done
 
+sassc res/chordfmt/style.scss > res/chordfmt/style.css
+rm res/chordfmt/style.scss
+
 mv tools/make_index.py .
 mv tools/chordpro_importer.py .

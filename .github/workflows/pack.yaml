@@ -19,6 +19,7 @@ jobs:
         fetch-depth: 0
     - name: Pack
       run: |
+        git submodule init
         ./tools/pack.sh
         rm songs/*.sample
         ls
