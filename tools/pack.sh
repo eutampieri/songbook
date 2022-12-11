@@ -16,7 +16,8 @@ for f in *.html
     sed -i "s/{{dates}}/$COPYRIGHT_DATES/g" $f
 done
 
-sass res/chordfmt/style.scss res/chordfmt/style.css
+sudo apt install sassc
+sassc res/chordfmt/style.scss res/chordfmt/style.css
 rm res/chordfmt/style.scss
 rm -rf res/chordfmt/.git*
 rm res/chordfmrìt/example.html
