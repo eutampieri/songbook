@@ -20,6 +20,7 @@ jobs:
     - name: Pack
       run: |
         git submodule init
+        git submodule update
         ./tools/pack.sh
         rm songs/*.sample
         ls
