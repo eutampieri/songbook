@@ -97,10 +97,19 @@ async function load() {
 }
 
 function transpose(semitones) {
+    let tab_container = document.getElementById("tabs");
+    tab_container.innerHTML = '';
+    let chords = {};
     if (BetterChords !== undefined) {
         document.getElementById("transpose").classList.remove("d-none");
         let previous_margin = 0;
         for (let el of document.getElementsByClassName("chord")) {
+            if(chords[el.dataset.original_chord] === undefined) {
+                chords[el.dataset.original_chord] = true;
+                let c = make_empty_chord(4, 5);
+                fill_chord(c, BetterChords.makeUkuleleChord(el.dataset.original_chord, semitones));
+                tab_container.appendChild(c);
+            }
             el.innerText = BetterChords.transpose(el.dataset.original_chord, semitones) + ' ';
             let p = el.parentElement;
             if (parseInt(p.style.marginLeft) == 0) {
