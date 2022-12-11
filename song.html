@@ -30,7 +30,7 @@
         let wasm_status = null;
     </script>
     <script type="module">
-        import { transpose_chord, get_version, default as init } from './res/better_chords.js';
+        import { transpose_chord, get_version, generate_chord_ukulele, default as init } from './res/better_chords.js';
 
         async function load_better_chords() {
             await init('res/better_chords_bg.wasm');
