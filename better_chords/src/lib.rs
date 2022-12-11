@@ -1,4 +1,7 @@
+use std::borrow::Borrow;
+
 //use chordcalc::chords::Chord;
+use chordcalc::{instruments::Instrument, Mode};
 use git_version::git_version;
 use wasm_bindgen::prelude::*;
 
@@ -28,4 +31,16 @@ pub fn get_version() -> String {
         git_version!(),
         env!("CHORDCALC_VER")
     )
+}
+
+#[wasm_bindgen]
+pub fn generate_chord_ukulele(chord: &str, semitones: i8) -> Vec<i8> {
+    if let Ok((n, m)) = chordcalc::parse_chord(chord) {
+        chordcalc::instruments::Ukulele::play(m.make_chord(n + semitones).borrow())
+            .iter()
+            .map(|x| x.map(|x| x as i8).unwrap_or(-1))
+            .collect()
+    } else {
+        vec![]
+    }
 }

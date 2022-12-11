@@ -38,7 +38,8 @@
             // make the function available to the browser
             window.BetterChords = {
                 transpose: transpose_chord,
-                version: get_version
+                version: get_version,
+                makeUkuleleChord: generate_chord_ukulele,
             };
             document.getElementById("bc_ver").innerText = ` - ${BetterChords.version()}`;
         }
