@@ -31,12 +31,12 @@ jobs:
           while IFS= read -r file
           do
             echo $file
-            if [[ $file != better_chords/* ]]; then
-              echo "This modified file is not under the 'better_chords' folder."
-              echo "run_job=false" >> $GITHUB_OUTPUT
+            if [[ $file == better_chords/* ]]; then
+              echo "run_job=true" >> $GITHUB_OUTPUT
               break
             else
-              echo "run_job=true" >> $GITHUB_OUTPUT
+              echo "This modified file is not under the 'better_chords' folder."
+              echo "run_job=false" >> $GITHUB_OUTPUT
             fi
           done < files.txt
 

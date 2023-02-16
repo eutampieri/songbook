@@ -8,7 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="res/style.css" rel="stylesheet">
+    <link href="res/chordfmt/style.css" rel="stylesheet">
     <style>
+        .chordtab {
+            margin: .5em;
+        }
         .refrain {
             margin-left: 1em;
             font-weight: bold;
@@ -30,7 +34,7 @@
         let wasm_status = null;
     </script>
     <script type="module">
-        import { transpose_chord, get_version, default as init } from './res/better_chords.js';
+        import { transpose_chord, get_version, generate_chord_ukulele, default as init } from './res/better_chords.js';
 
         async function load_better_chords() {
             await init('res/better_chords_bg.wasm');
@@ -38,7 +42,8 @@
             // make the function available to the browser
             window.BetterChords = {
                 transpose: transpose_chord,
-                version: get_version
+                version: get_version,
+                makeUkuleleChord: generate_chord_ukulele,
             };
             document.getElementById("bc_ver").innerText = ` - ${BetterChords.version()}`;
         }
@@ -46,6 +51,7 @@
     </script>
     <script src="res/utils.js"></script>
     <script src="res/song.js"></script>
+    <script src="res/chordfmt/chord.js"></script>
 </head>
 
 <body onload="load()">
@@ -63,6 +69,8 @@
                 <section id="recordings" class="d-none">
                     <h2>Registrazioni</h2>
                 </section>
+		<section id="tabs">
+		</section>
             </section>
             <article id="lyrics" class="col-md-6 order-md-first"></article>
         </div>

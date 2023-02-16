@@ -1,0 +1,3 @@
+[submodule "res/chordfmt"]
+	path = res/chordfmt
+	url = https://gitlab.com/eutampieri/html-tabulature

@@ -16,5 +16,11 @@ for f in *.html
     sed -i "s/{{dates}}/$COPYRIGHT_DATES/g" $f
 done
 
+sudo apt install sassc
+sassc res/chordfmt/style.scss res/chordfmt/style.css
+rm res/chordfmt/style.scss
+rm -rf res/chordfmt/.git*
+rm res/chordfmrìt/example.html
+
 mv tools/make_index.py .
 mv tools/chordpro_importer.py .
