@@ -92,6 +92,7 @@ def parse_line(l):
 
 def parse_directive(d):
     parsed = d.strip(" \t\n{}").split(':')
+    parsed = parsed if len(parsed) == 1 else [parsed[0], ':'.join(parsed[1:])]
     if len(parsed) == 1:
         return parsed[0], None
     else:
