@@ -8,7 +8,7 @@ def get_id(fn):
 
 index = []
 
-for song in glob("songs/*.json"):
+for song in glob("songs/**.json"):
     with open(song) as f:
         song_data = json.load(f)
     index.append(
