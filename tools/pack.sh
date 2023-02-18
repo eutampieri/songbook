@@ -24,3 +24,4 @@ rm res/chordfmrìt/example.html
 
 mv tools/make_index.py .
 mv tools/chordpro_importer.py .
+mv tools/chordpro_exporter.py .
