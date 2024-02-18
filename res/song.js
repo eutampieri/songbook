@@ -82,8 +82,7 @@ async function load() {
                     break;
                 case "peertube":
                     container = document.createElement("div");
-
-                    container.innerHTML = `<iframe src="https://${rec.instance}/video/embed/${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
+                    container.innerHTML = `<iframe src="https://${rec.instance}/videos/embed/${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
                     recs.appendChild(container);
                     break;
                 case "audio":
