@@ -70,13 +70,20 @@ async function load() {
         let recs = document.getElementById("recordings");
         recs.classList.remove("d-none");
         for (const rec of song.recordings) {
+            let container;
             switch (rec.type) {
                 case "soundcloud":
                     get_soundcloud_rec(rec.url).then((x) => recs.appendChild(x));
                     break;
                 case "cfstream":
-                    let container = document.createElement("div");
+                    container = document.createElement("div");
                     container.innerHTML = `<iframe src="https://iframe.videodelivery.net/${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
+                    recs.appendChild(container);
+                    break;
+                case "peertube":
+                    container = document.createElement("div");
+
+                    container.innerHTML = `<iframe src="https://${rec.instance}/video/embed/${rec.id}" style="border: none; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
                     recs.appendChild(container);
                     break;
                 case "audio":
@@ -104,7 +111,7 @@ function transpose(semitones) {
         document.getElementById("transpose").classList.remove("d-none");
         let previous_margin = 0;
         for (let el of document.getElementsByClassName("chord")) {
-            if(chords[el.dataset.original_chord] === undefined) {
+            if (chords[el.dataset.original_chord] === undefined) {
                 chords[el.dataset.original_chord] = true;
                 let c = make_empty_chord(4, 5);
                 fill_chord(c, BetterChords.makeUkuleleChord(el.dataset.original_chord, semitones));
